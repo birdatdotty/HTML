@@ -1,0 +1,23 @@
+QMAKE_CXXFLAGS += -std=c++17
+TARGET = Site
+
+#SOURCES += Site.cc Root.cc Page.cc Dir.cc
+#HEADERS += Site.h Root.h Page.h Dir.h ProjectItem.h registerType.h
+SOURCES += ../../Site.cc ../../Page.cc ../../Root.cc ../../Dir.cc
+HEADERS += ../../Site.h ../../Root.h ../../Page.h ../../Dir.h ../../ProjectItem.h ../../registerType.h
+
+LIBS += -lstdc++fs
+
+QT = qml
+TEMPLATE = lib
+CONFIG += staticlib
+
+target.path = /opt/HTML/lib/
+
+headers.path = /opt/HTML/include/
+headers.files = $$HEADERS
+
+INSTALLS += target headers
+
+INCLUDEPATH += /opt/HTML/include
+LIBS  += -L/opt/HTML/lib/ -lHTML
